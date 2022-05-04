@@ -51,7 +51,7 @@ func (mgc *MeaningGroupChild) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
 	case "div":
 		// TODO: div
 	default:
-		return ErrHeadChildrenUnknownElement
+		return ErrMeaningGroupChildrenUnknownElement
 	}
 	return nil
 }
