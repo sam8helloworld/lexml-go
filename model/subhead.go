@@ -8,7 +8,7 @@ import (
 var ErrSubheadChildrenUnknownElement = errors.New("subhead have unknown children")
 
 type Subhead struct {
-	XMLName         xml.Name       `xml:"meaning-group"`
+	XMLName         xml.Name       `xml:"subhead"`
 	SubID           string         `xml:"subid,attr"`
 	Type            string         `xml:"type,attr"`
 	Delimiter       string         `xml:"delimiter,attr"`

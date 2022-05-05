@@ -8,7 +8,7 @@ import (
 var ErrExampleGroupChildrenUnknownElement = errors.New("example-group have unknown children")
 
 type ExampleGroup struct {
-	XMLName              xml.Name            `xml:"meaning-group"`
+	XMLName              xml.Name            `xml:"example-group"`
 	SubID                string              `xml:"subid,attr"`
 	Type                 string              `xml:"type,attr"`
 	Delimiter            string              `xml:"delimiter,attr"`
