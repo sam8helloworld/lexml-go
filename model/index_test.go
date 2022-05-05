@@ -8,31 +8,31 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-func TestHeadUnmarshalXML_Success(t *testing.T) {
+func TestIndexUnmarshalXML_Success(t *testing.T) {
 	tests := []struct {
 		name  string
 		input string
-		want  HeadChild
+		want  IndexChild
 	}{
 		{
-			name:  "headwordをUnmarshalできる",
-			input: `<headword>plasma</headword>`,
-			want: HeadChild{
-				Type: "headword",
-				Value: Headword{
-					XMLName: xml.Name{Local: "headword"},
-					Value:   "plasma",
+			name:  "meaningをUnmarshalできる",
+			input: `<meaning>意味</meaning>`,
+			want: IndexChild{
+				Type: "meaning",
+				Value: Meaning{
+					XMLName: xml.Name{Local: "meaning"},
+					Value:   "意味",
 				},
 			},
 		},
 		{
-			name:  "keyをUnmarshalできる",
-			input: `<key>plasma</key>`,
-			want: HeadChild{
-				Type: "key",
-				Value: Key{
-					XMLName: xml.Name{Local: "key"},
-					Value:   "plasma",
+			name:  "indexlistをUnmarshalできる",
+			input: `<indexlist>1</indexlist>`,
+			want: IndexChild{
+				Type: "indexlist",
+				Value: IndexList{
+					XMLName: xml.Name{Local: "indexlist"},
+					Value:   "1",
 				},
 			},
 		},
@@ -41,7 +41,7 @@ func TestHeadUnmarshalXML_Success(t *testing.T) {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
-			var got HeadChild
+			var got IndexChild
 			err := xml.Unmarshal([]byte(tt.input), &got)
 			if err != nil {
 				t.Fatalf("failed to execute Unmarshal %#v", err)
@@ -53,11 +53,11 @@ func TestHeadUnmarshalXML_Success(t *testing.T) {
 	}
 }
 
-func TestHeadUnmarshalXML_Fail(t *testing.T) {
+func TestIndexUnmarshalXML_Fail(t *testing.T) {
 	input := []byte(`<unknown>plasma</unknown>`)
-	var got HeadChild
+	var got IndexChild
 	err := xml.Unmarshal(input, &got)
-	if !errors.Is(err, ErrHeadChildrenUnknownElement) {
+	if !errors.Is(err, ErrIndexChildrenUnknownElement) {
 		t.Fatalf("failed to execute Unmarshal %#v", err)
 	}
 }
