@@ -48,7 +48,17 @@ func TestSubheadUnmarshalXML_Success(t *testing.T) {
 			},
 		},
 		// TODO: column
-		// TODO: subheadword
+		{
+			name:  "subheadwordをUnmarshalできる",
+			input: `<subheadword>subheadword</subheadword>`,
+			want: SubheadChild{
+				Type: "subheadword",
+				Value: Subheadword{
+					XMLName: xml.Name{Local: "subheadword"},
+					Value:   "subheadword",
+				},
+			},
+		},
 		{
 			name:  "keyをUnmarshalできる",
 			input: `<key>key</key>`,

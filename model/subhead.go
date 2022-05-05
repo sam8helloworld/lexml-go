@@ -23,7 +23,12 @@ type SubheadChild struct {
 func (mgc *SubheadChild) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	switch start.Name.Local {
 	case "subheadword":
-		// TODO: subheadword
+		var s Subheadword
+		if err := d.DecodeElement(&s, &start); err != nil {
+			return err
+		}
+		mgc.Value = s
+		mgc.Type = start.Name.Local
 	case "meaning":
 		var m Meaning
 		if err := d.DecodeElement(&m, &start); err != nil {
