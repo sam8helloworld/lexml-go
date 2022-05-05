@@ -29,64 +29,64 @@ func (di *DicItem) GetHead() Head {
 	return di.Head
 }
 
-func (hc *DicItemChild) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+func (dic *DicItemChild) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	switch start.Name.Local {
 	case "meaning":
 		var m Meaning
 		if err := d.DecodeElement(&m, &start); err != nil {
 			return err
 		}
-		hc.Value = m
-		hc.Type = start.Name.Local
+		dic.Value = m
+		dic.Type = start.Name.Local
 	case "meaning-group":
 		var mg MeaningGroup
 		if err := d.DecodeElement(&mg, &start); err != nil {
 			return err
 		}
-		hc.Value = mg
-		hc.Type = start.Name.Local
+		dic.Value = mg
+		dic.Type = start.Name.Local
 	case "example":
 		var e Example
 		if err := d.DecodeElement(&e, &start); err != nil {
 			return err
 		}
-		hc.Value = e
-		hc.Type = start.Name.Local
+		dic.Value = e
+		dic.Type = start.Name.Local
 	case "example-group":
 		var eg ExampleGroup
 		if err := d.DecodeElement(&eg, &start); err != nil {
 			return err
 		}
-		hc.Value = eg
-		hc.Type = start.Name.Local
+		dic.Value = eg
+		dic.Type = start.Name.Local
 	case "subhead":
 		var s Subhead
 		if err := d.DecodeElement(&s, &start); err != nil {
 			return err
 		}
-		hc.Value = s
-		hc.Type = start.Name.Local
+		dic.Value = s
+		dic.Type = start.Name.Local
 	case "subheadword":
 		var s Subheadword
 		if err := d.DecodeElement(&s, &start); err != nil {
 			return err
 		}
-		hc.Value = s
-		hc.Type = start.Name.Local
+		dic.Value = s
+		dic.Type = start.Name.Local
 	case "index":
 		var i Index
 		if err := d.DecodeElement(&i, &start); err != nil {
 			return err
 		}
-		hc.Value = i
-		hc.Type = start.Name.Local
+		dic.Value = i
+		dic.Type = start.Name.Local
 	case "key":
 		var k Key
 		if err := d.DecodeElement(&k, &start); err != nil {
 			return err
 		}
-		hc.Value = k
-		hc.Type = start.Name.Local
+		dic.Value = k
+		dic.Type = start.Name.Local
 	case "column":
 		// TODO: column
 	case "div":
@@ -116,8 +116,8 @@ func (hc *DicItemChild) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 		if err := d.DecodeElement(&s, &start); err != nil {
 			return err
 		}
-		hc.Value = s
-		hc.Type = start.Name.Local
+		dic.Value = s
+		dic.Type = start.Name.Local
 	default:
 		return ErrDicItemChildrenUnknownElement
 	}

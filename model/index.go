@@ -19,22 +19,22 @@ type IndexChild struct {
 	Value interface{}
 }
 
-func (hc *IndexChild) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+func (ic *IndexChild) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	switch start.Name.Local {
 	case "meaning":
 		var m Meaning
 		if err := d.DecodeElement(&m, &start); err != nil {
 			return err
 		}
-		hc.Value = m
-		hc.Type = start.Name.Local
+		ic.Value = m
+		ic.Type = start.Name.Local
 	case "indexlist":
 		var il IndexList
 		if err := d.DecodeElement(&il, &start); err != nil {
 			return err
 		}
-		hc.Value = il
-		hc.Type = start.Name.Local
+		ic.Value = il
+		ic.Type = start.Name.Local
 	default:
 		return ErrIndexChildrenUnknownElement
 	}

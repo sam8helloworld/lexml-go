@@ -20,36 +20,36 @@ type SubheadChild struct {
 	Value interface{}
 }
 
-func (mgc *SubheadChild) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+func (sc *SubheadChild) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	switch start.Name.Local {
 	case "subheadword":
 		var s Subheadword
 		if err := d.DecodeElement(&s, &start); err != nil {
 			return err
 		}
-		mgc.Value = s
-		mgc.Type = start.Name.Local
+		sc.Value = s
+		sc.Type = start.Name.Local
 	case "meaning":
 		var m Meaning
 		if err := d.DecodeElement(&m, &start); err != nil {
 			return err
 		}
-		mgc.Value = m
-		mgc.Type = start.Name.Local
+		sc.Value = m
+		sc.Type = start.Name.Local
 	case "example":
 		var e Example
 		if err := d.DecodeElement(&e, &start); err != nil {
 			return err
 		}
-		mgc.Value = e
-		mgc.Type = start.Name.Local
+		sc.Value = e
+		sc.Type = start.Name.Local
 	case "snippet":
 		var s Snippet
 		if err := d.DecodeElement(&s, &start); err != nil {
 			return err
 		}
-		mgc.Value = s
-		mgc.Type = start.Name.Local
+		sc.Value = s
+		sc.Type = start.Name.Local
 	case "column":
 		// TODO: column
 	case "key":
@@ -57,8 +57,8 @@ func (mgc *SubheadChild) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 		if err := d.DecodeElement(&k, &start); err != nil {
 			return err
 		}
-		mgc.Value = k
-		mgc.Type = start.Name.Local
+		sc.Value = k
+		sc.Type = start.Name.Local
 	case "div":
 		// TODO: div
 	default:
