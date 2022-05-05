@@ -74,7 +74,12 @@ func (hc *DicItemChild) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 		hc.Value = s
 		hc.Type = start.Name.Local
 	case "index":
-		// TODO: index
+		var i Index
+		if err := d.DecodeElement(&i, &start); err != nil {
+			return err
+		}
+		hc.Value = i
+		hc.Type = start.Name.Local
 	case "key":
 		var k Key
 		if err := d.DecodeElement(&k, &start); err != nil {

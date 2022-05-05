@@ -78,6 +78,16 @@ func TestDicItemUnmarshalXML_Success(t *testing.T) {
 			},
 		},
 		{
+			name:  "indexをUnmarshalできる",
+			input: `<index></index>`,
+			want: DicItemChild{
+				Type: "index",
+				Value: Index{
+					XMLName: xml.Name{Local: "index"},
+				},
+			},
+		},
+		{
 			name:  "keyをUnmarshalできる",
 			input: `<key>key</key>`,
 			want: DicItemChild{
