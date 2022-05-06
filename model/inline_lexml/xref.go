@@ -2,18 +2,18 @@ package model
 
 import "encoding/xml"
 
-type ref struct {
-	InlineHTML
-	XMLName xml.Name `xml:"ref"`
+type xref struct {
+	InlineLeXML
+	XMLName xml.Name `xml:"xref"`
 	Type    string   `xml:"type,attr"`
 	RefId   string   `xml:"refid,attr"`
 	Id      string   `xml:"id,attr"`
 	Value   string   `xml:",chardata"`
 }
 
-type Ref struct {
-	InlineHTML
-	XMLName xml.Name `xml:"REF"`
+type XRef struct {
+	InlineLeXML
+	XMLName xml.Name `xml:"XREF"`
 	Type    string   `xml:"type,attr"`
 	RefId   string   `xml:"refid,attr"`
 	Id      string   `xml:"id,attr"`

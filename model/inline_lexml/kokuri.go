@@ -2,8 +2,8 @@ package model
 
 import "encoding/xml"
 
-type Mlg struct {
-	InlineHTML
-	XMLName xml.Name `xml:"mlg"`
+type KOkuri struct {
+	InlineLeXML
+	XMLName xml.Name `xml:"kokuri"`
 	Value   string   `xml:",chardata"`
 }

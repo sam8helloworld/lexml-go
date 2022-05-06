@@ -2,10 +2,10 @@ package model
 
 import "encoding/xml"
 
-type Spellout struct {
-	InlineHTML
-	XMLName xml.Name `xml:"spellout"`
+type Hidden struct {
+	InlineLeXML
+	XMLName xml.Name `xml:"hidden"`
 	Type    string   `xml:"type,attr"`
-	Org     string   `xml:"org,attr"`
+	Memo    string   `xml:"memo,attr"`
 	Value   string   `xml:",chardata"`
 }

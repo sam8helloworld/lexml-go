@@ -2,10 +2,10 @@ package model
 
 import "encoding/xml"
 
-type Hidden struct {
-	InlineHTML
-	XMLName xml.Name `xml:"hidden"`
+type Kanbun struct {
+	InlineLeXML
+	XMLName xml.Name `xml:"kanbun"`
 	Type    string   `xml:"type,attr"`
-	Memo    string   `xml:"memo,attr"`
+	SubID   string   `xml:"subid,attr"`
 	Value   string   `xml:",chardata"`
 }

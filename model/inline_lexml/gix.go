@@ -3,7 +3,7 @@ package model
 import "encoding/xml"
 
 type Gix struct {
-	InlineHTML
+	InlineLeXML
 	XMLName xml.Name `xml:"gix"`
 	Alt     string   `xml:"alt,attr"`
 	Type    string   `xml:"type,attr"`

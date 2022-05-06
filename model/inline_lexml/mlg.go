@@ -2,8 +2,8 @@ package model
 
 import "encoding/xml"
 
-type Light struct {
-	InlineHTML
-	XMLName xml.Name `xml:"light"`
+type Mlg struct {
+	InlineLeXML
+	XMLName xml.Name `xml:"mlg"`
 	Value   string   `xml:",chardata"`
 }

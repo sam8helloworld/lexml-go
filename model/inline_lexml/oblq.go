@@ -2,8 +2,8 @@ package model
 
 import "encoding/xml"
 
-type Obliq struct {
-	InlineHTML
-	XMLName xml.Name `xml:"obliq"`
+type Oblq struct {
+	InlineLeXML
+	XMLName xml.Name `xml:"oblq"`
 	Value   string   `xml:",chardata"`
 }

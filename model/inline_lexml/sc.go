@@ -2,8 +2,8 @@ package model
 
 import "encoding/xml"
 
-type KlRt struct {
-	InlineHTML
-	XMLName xml.Name `xml:"klrt"`
+type Sc struct {
+	InlineLeXML
+	XMLName xml.Name `xml:"sc"`
 	Value   string   `xml:",chardata"`
 }
