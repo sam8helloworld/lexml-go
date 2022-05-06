@@ -1,0 +1,9 @@
+package model
+
+import "encoding/xml"
+
+type KOkuri struct {
+	InlineLeXML
+	XMLName xml.Name `xml:"kokuri"`
+	Value   string   `xml:",chardata"`
+}
