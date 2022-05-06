@@ -3,7 +3,7 @@ package model
 import "encoding/xml"
 
 type ALabel struct {
-	InlineXML
+	InlineLeXML
 	XMLName xml.Name `xml:"alabel"`
 	Type    string   `xml:"type,attr"`
 	Code    string   `xml:"code,attr"`
