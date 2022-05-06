@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/xml"
 
-	"github.com/sam8helloworld/lexml-go/model"
+	model "github.com/sam8helloworld/lexml-go/model/structure"
 )
 
 func UnMarshal(xmldoc []byte) (*model.DicItem, error) {
