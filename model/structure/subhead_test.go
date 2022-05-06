@@ -47,7 +47,16 @@ func TestSubheadUnmarshalXML_Success(t *testing.T) {
 				},
 			},
 		},
-		// TODO: column
+		{
+			name:  "columnをUnmarshalできる",
+			input: `<column></column>`,
+			want: SubheadChild{
+				Type: "column",
+				Value: Column{
+					XMLName: xml.Name{Local: "column"},
+				},
+			},
+		},
 		{
 			name:  "subheadwordをUnmarshalできる",
 			input: `<subheadword>subheadword</subheadword>`,
@@ -70,7 +79,16 @@ func TestSubheadUnmarshalXML_Success(t *testing.T) {
 				},
 			},
 		},
-		// TODO: div
+		{
+			name:  "divをUnmarshalできる",
+			input: `<div></div>`,
+			want: SubheadChild{
+				Type: "div",
+				Value: Div{
+					XMLName: xml.Name{Local: "div"},
+				},
+			},
+		},
 	}
 	for _, tt := range tests {
 		tt := tt

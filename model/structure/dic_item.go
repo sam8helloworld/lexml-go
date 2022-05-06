@@ -89,29 +89,89 @@ func (dic *DicItemChild) UnmarshalXML(d *xml.Decoder, start xml.StartElement) er
 		dic.Value = k
 		dic.Type = start.Name.Local
 	case "column":
-		// TODO: column
+		var c Column
+		if err := d.DecodeElement(&c, &start); err != nil {
+			return err
+		}
+		dic.Value = c
+		dic.Type = start.Name.Local
 	case "div":
-		// TODO: dic
+		var div Div
+		if err := d.DecodeElement(&div, &start); err != nil {
+			return err
+		}
+		dic.Value = div
+		dic.Type = start.Name.Local
 	case "p":
-		// TODO: p
+		var p P
+		if err := d.DecodeElement(&p, &start); err != nil {
+			return err
+		}
+		dic.Value = p
+		dic.Type = start.Name.Local
 	case "image":
-		// TODO: image
+		var i Image
+		if err := d.DecodeElement(&i, &start); err != nil {
+			return err
+		}
+		dic.Value = i
+		dic.Type = start.Name.Local
 	case "audio":
-		// TODO: audio
+		var a Audio
+		if err := d.DecodeElement(&a, &start); err != nil {
+			return err
+		}
+		dic.Value = a
+		dic.Type = start.Name.Local
 	case "video":
-		// TODO: video
+		var v Video
+		if err := d.DecodeElement(&v, &start); err != nil {
+			return err
+		}
+		dic.Value = v
+		dic.Type = start.Name.Local
 	case "table":
-		// TODO: table
+		var t Table
+		if err := d.DecodeElement(&t, &start); err != nil {
+			return err
+		}
+		dic.Value = t
+		dic.Type = start.Name.Local
 	case "replace":
-		// TODO: replace
+		var r Replace
+		if err := d.DecodeElement(&r, &start); err != nil {
+			return err
+		}
+		dic.Value = r
+		dic.Type = start.Name.Local
 	case "ul":
-		// TODO: ul
+		var u Ul
+		if err := d.DecodeElement(&u, &start); err != nil {
+			return err
+		}
+		dic.Value = u
+		dic.Type = start.Name.Local
 	case "dl":
-		// TODO: dl
+		var dl Dl
+		if err := d.DecodeElement(&dl, &start); err != nil {
+			return err
+		}
+		dic.Value = dl
+		dic.Type = start.Name.Local
 	case "memo":
-		// TODO: memo
+		var m Memo
+		if err := d.DecodeElement(&m, &start); err != nil {
+			return err
+		}
+		dic.Value = m
+		dic.Type = start.Name.Local
 	case "data":
-		// TODO: data
+		var data Data
+		if err := d.DecodeElement(&data, &start); err != nil {
+			return err
+		}
+		dic.Value = data
+		dic.Type = start.Name.Local
 	case "snippet":
 		var s Snippet
 		if err := d.DecodeElement(&s, &start); err != nil {

@@ -52,7 +52,12 @@ func (sc *SubheadChild) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 		sc.Value = s
 		sc.Type = start.Name.Local
 	case "column":
-		// TODO: column
+		var c Column
+		if err := d.DecodeElement(&c, &start); err != nil {
+			return err
+		}
+		sc.Value = c
+		sc.Type = start.Name.Local
 	case "key":
 		var k Key
 		if err := d.DecodeElement(&k, &start); err != nil {
@@ -61,7 +66,12 @@ func (sc *SubheadChild) UnmarshalXML(d *xml.Decoder, start xml.StartElement) err
 		sc.Value = k
 		sc.Type = start.Name.Local
 	case "div":
-		// TODO: div
+		var div Div
+		if err := d.DecodeElement(&div, &start); err != nil {
+			return err
+		}
+		sc.Value = div
+		sc.Type = start.Name.Local
 	default:
 		return ErrSubheadChildrenUnknownElement
 	}

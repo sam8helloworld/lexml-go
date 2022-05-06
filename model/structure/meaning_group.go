@@ -39,9 +39,19 @@ func (mgc *MeaningGroupChild) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
 		mgc.Value = e
 		mgc.Type = start.Name.Local
 	case "subhead":
-		// TODO: subhead
+		var s Subhead
+		if err := d.DecodeElement(&s, &start); err != nil {
+			return err
+		}
+		mgc.Value = s
+		mgc.Type = start.Name.Local
 	case "column":
-		// TODO: column
+		var c Column
+		if err := d.DecodeElement(&c, &start); err != nil {
+			return err
+		}
+		mgc.Value = c
+		mgc.Type = start.Name.Local
 	case "key":
 		var k Key
 		if err := d.DecodeElement(&k, &start); err != nil {
@@ -50,7 +60,12 @@ func (mgc *MeaningGroupChild) UnmarshalXML(d *xml.Decoder, start xml.StartElemen
 		mgc.Value = k
 		mgc.Type = start.Name.Local
 	case "div":
-		// TODO: div
+		var div Div
+		if err := d.DecodeElement(&div, &start); err != nil {
+			return err
+		}
+		mgc.Value = div
+		mgc.Type = start.Name.Local
 	default:
 		return ErrMeaningGroupChildrenUnknownElement
 	}
