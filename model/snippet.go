@@ -7,5 +7,5 @@ type Snippet struct {
 	PID      string   `xml:"pid,attr"`
 	Type     string   `xml:"type,attr"`
 	Headword string   `xml:"headword,attr"`
-	Value    string   `xml:",innerxml"`
+	Value    string   `xml:",chardata"`
 }

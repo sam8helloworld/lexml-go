@@ -7,5 +7,5 @@ type Big struct {
 	XMLName xml.Name `xml:"big"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
-	Value   string   `xml:",innerxml"`
+	Value   string   `xml:",chardata"`
 }

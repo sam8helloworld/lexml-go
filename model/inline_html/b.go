@@ -7,5 +7,5 @@ type B struct {
 	XMLName xml.Name `xml:"b"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
-	Value   string   `xml:",innerxml"`
+	Value   string   `xml:",chardata"`
 }

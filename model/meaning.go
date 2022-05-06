@@ -8,5 +8,5 @@ type Meaning struct {
 	Type    string   `xml:"type,attr"`
 	Level   string   `xml:"level,attr"`
 	No      string   `xml:"no,attr"`
-	Value   string   `xml:",innerxml"`
+	Value   string   `xml:",chardata"`
 }
