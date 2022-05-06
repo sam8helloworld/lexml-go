@@ -36,8 +36,26 @@ func TestMeaningGroupUnmarshalXML_Success(t *testing.T) {
 				},
 			},
 		},
-		// TODO: subhead
-		// TODO: column
+		{
+			name:  "subheadをUnmarshalできる",
+			input: `<subhead></subhead>`,
+			want: MeaningGroupChild{
+				Type: "subhead",
+				Value: Subhead{
+					XMLName: xml.Name{Local: "subhead"},
+				},
+			},
+		},
+		{
+			name:  "columnをUnmarshalできる",
+			input: `<column></column>`,
+			want: MeaningGroupChild{
+				Type: "column",
+				Value: Column{
+					XMLName: xml.Name{Local: "column"},
+				},
+			},
+		},
 		{
 			name:  "keyをUnmarshalできる",
 			input: `<key>key</key>`,
@@ -49,7 +67,16 @@ func TestMeaningGroupUnmarshalXML_Success(t *testing.T) {
 				},
 			},
 		},
-		// TODO: div
+		{
+			name:  "divをUnmarshalできる",
+			input: `<div></div>`,
+			want: MeaningGroupChild{
+				Type: "div",
+				Value: Div{
+					XMLName: xml.Name{Local: "div"},
+				},
+			},
+		},
 	}
 	for _, tt := range tests {
 		tt := tt

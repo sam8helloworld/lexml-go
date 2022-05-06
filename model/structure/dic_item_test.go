@@ -99,6 +99,129 @@ func TestDicItemUnmarshalXML_Success(t *testing.T) {
 			},
 		},
 		{
+			name:  "columnをUnmarshalできる",
+			input: `<column></column>`,
+			want: DicItemChild{
+				Type: "column",
+				Value: Column{
+					XMLName: xml.Name{Local: "column"},
+				},
+			},
+		},
+		{
+			name:  "divをUnmarshalできる",
+			input: `<div></div>`,
+			want: DicItemChild{
+				Type: "div",
+				Value: Div{
+					XMLName: xml.Name{Local: "div"},
+				},
+			},
+		},
+		{
+			name:  "pをUnmarshalできる",
+			input: `<p>p</p>`,
+			want: DicItemChild{
+				Type: "p",
+				Value: P{
+					XMLName: xml.Name{Local: "p"},
+					Value:   "p",
+				},
+			},
+		},
+		{
+			name:  "imageをUnmarshalできる",
+			input: `<image></image>`,
+			want: DicItemChild{
+				Type: "image",
+				Value: Image{
+					XMLName: xml.Name{Local: "image"},
+				},
+			},
+		},
+		{
+			name:  "audioをUnmarshalできる",
+			input: `<audio></audio>`,
+			want: DicItemChild{
+				Type: "audio",
+				Value: Audio{
+					XMLName: xml.Name{Local: "audio"},
+				},
+			},
+		},
+		{
+			name:  "videoをUnmarshalできる",
+			input: `<video></video>`,
+			want: DicItemChild{
+				Type: "video",
+				Value: Video{
+					XMLName: xml.Name{Local: "video"},
+				},
+			},
+		},
+		{
+			name:  "tableをUnmarshalできる",
+			input: `<table></table>`,
+			want: DicItemChild{
+				Type: "table",
+				Value: Table{
+					XMLName: xml.Name{Local: "table"},
+				},
+			},
+		},
+		{
+			name:  "replaceをUnmarshalできる",
+			input: `<replace></replace>`,
+			want: DicItemChild{
+				Type: "replace",
+				Value: Replace{
+					XMLName: xml.Name{Local: "replace"},
+				},
+			},
+		},
+		{
+			name:  "ulをUnmarshalできる",
+			input: `<ul></ul>`,
+			want: DicItemChild{
+				Type: "ul",
+				Value: Ul{
+					XMLName: xml.Name{Local: "ul"},
+				},
+			},
+		},
+		{
+			name:  "dlをUnmarshalできる",
+			input: `<dl></dl>`,
+			want: DicItemChild{
+				Type: "dl",
+				Value: Dl{
+					XMLName: xml.Name{Local: "dl"},
+				},
+			},
+		},
+		{
+			name:  "memoをUnmarshalできる",
+			input: `<memo>memo</memo>`,
+			want: DicItemChild{
+				Type: "memo",
+				Value: Memo{
+					XMLName: xml.Name{Local: "memo"},
+					Value:   "memo",
+				},
+			},
+		},
+		{
+			name:  "dataをUnmarshalできる",
+			input: `<data>data</data>`,
+			want: DicItemChild{
+				Type: "data",
+				Value: Data{
+					XMLName: xml.Name{Local: "data"},
+					Value:   "data",
+				},
+			},
+		},
+		{
 			name:  "snippetをUnmarshalできる",
 			input: `<snippet>snippet</snippet>`,
 			want: DicItemChild{
