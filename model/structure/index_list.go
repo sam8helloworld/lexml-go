@@ -2,8 +2,9 @@ package model
 
 import "encoding/xml"
 
-type Key struct {
-	XMLName xml.Name `xml:"key"`
+type IndexList struct {
+	Structure
+	XMLName xml.Name `xml:"indexlist"`
 	Type    string   `xml:"type,attr"`
 	Value   string   `xml:",chardata"`
 }

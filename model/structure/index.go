@@ -8,6 +8,7 @@ import (
 var ErrIndexChildrenUnknownElement = errors.New("index have unknown children")
 
 type Index struct {
+	Structure
 	XMLName       xml.Name     `xml:"index"`
 	SubID         string       `xml:"subid,attr"`
 	Type          string       `xml:"type,attr"`

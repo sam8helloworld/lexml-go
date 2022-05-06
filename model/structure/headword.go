@@ -2,8 +2,9 @@ package model
 
 import "encoding/xml"
 
-type Subheadword struct {
-	XMLName   xml.Name `xml:"subheadword"`
+type Headword struct {
+	Structure
+	XMLName   xml.Name `xml:"headword"`
 	Type      string   `xml:"type,attr"`
 	Delimiter string   `xml:"delimiter,attr"`
 	Value     string   `xml:",chardata"`

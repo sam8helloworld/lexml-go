@@ -8,6 +8,7 @@ import (
 var ErrDivChildrenUnknownElement = errors.New("div have unknown children")
 
 type Div struct {
+	Structure
 	XMLName     xml.Name   `xml:"div"`
 	SubID       string     `xml:"subid,attr"`
 	Type        string     `xml:"type,attr"`

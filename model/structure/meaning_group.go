@@ -8,6 +8,7 @@ import (
 var ErrMeaningGroupChildrenUnknownElement = errors.New("meaning-group have unknown children")
 
 type MeaningGroup struct {
+	Structure
 	XMLName              xml.Name            `xml:"meaning-group"`
 	SubID                string              `xml:"subid,attr"`
 	Type                 string              `xml:"type,attr"`

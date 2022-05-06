@@ -8,6 +8,7 @@ import (
 var ErrColumnChildrenUnknownElement = errors.New("column have unknown children")
 
 type Column struct {
+	Structure
 	XMLName        xml.Name      `xml:"column"`
 	SubID          string        `xml:"subid,attr"`
 	Type           string        `xml:"type,attr"`
