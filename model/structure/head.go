@@ -8,6 +8,7 @@ import (
 var ErrHeadChildrenUnknownElement = errors.New("head have unknown children")
 
 type Head struct {
+	Structure
 	XMLName      xml.Name    `xml:"head"`
 	HeadChildren []HeadChild `xml:",any"` // Headword or Key
 }

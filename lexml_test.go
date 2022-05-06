@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/sam8helloworld/lexml-go/model"
+	model "github.com/sam8helloworld/lexml-go/model/structure"
 )
 
 func TestSuccessUnmarshalDicItem(t *testing.T) {

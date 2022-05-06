@@ -8,6 +8,7 @@ import (
 var ErrDicItemChildrenUnknownElement = errors.New("dic-item have unknown children")
 
 type DicItem struct {
+	Structure
 	XMLName         xml.Name `xml:"dic-item"`
 	ID              string   `xml:"id,attr"`
 	Type            string   `xml:"type,attr"`
