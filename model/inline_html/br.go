@@ -2,17 +2,17 @@ package model
 
 import "encoding/xml"
 
-type b struct {
+type br struct {
 	InlineHTML
-	XMLName xml.Name `xml:"b"`
+	XMLName xml.Name `xml:"br"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
 	Value   string   `xml:",chardata"`
 }
 
-type B struct {
+type BR struct {
 	InlineHTML
-	XMLName xml.Name `xml:"B"`
+	XMLName xml.Name `xml:"BR"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
 	Value   string   `xml:",chardata"`
