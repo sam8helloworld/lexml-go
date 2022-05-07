@@ -1,14 +1,14 @@
-package model
+package inline_html
 
 import "encoding/xml"
 
-type sup struct {
+type SmallSup struct {
 	InlineHTML
 	XMLName xml.Name `xml:"sup"`
 	Value   string   `xml:",chardata"`
 }
 
-type Sup struct {
+type LargeSup struct {
 	InlineHTML
 	XMLName xml.Name `xml:"SUP"`
 	Value   string   `xml:",chardata"`

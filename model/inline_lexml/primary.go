@@ -1,4 +1,4 @@
-package model
+package inline_lexml
 
 import "encoding/xml"
 

@@ -1,4 +1,4 @@
-package model
+package inline_html
 
 import "encoding/xml"
 

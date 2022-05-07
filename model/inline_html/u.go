@@ -1,8 +1,8 @@
-package model
+package inline_html
 
 import "encoding/xml"
 
-type u struct {
+type SmallU struct {
 	InlineHTML
 	XMLName xml.Name `xml:"u"`
 	Type    string   `xml:"type,attr"`
@@ -10,7 +10,7 @@ type u struct {
 	Value   string   `xml:",chardata"`
 }
 
-type U struct {
+type LargeU struct {
 	InlineHTML
 	XMLName xml.Name `xml:"U"`
 	Type    string   `xml:"type,attr"`
