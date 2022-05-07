@@ -7,5 +7,5 @@ type Th struct {
 	XMLName xml.Name `xml:"th"`
 	ColSpan string   `xml:"colspan,attr"`
 	RowSpan string   `xml:"rowspan,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` //  (#PCDATA | %inline.html; | %inline.lexml;)*
 }

@@ -12,7 +12,7 @@ type Column struct {
 	XMLName        xml.Name      `xml:"column"`
 	SubID          string        `xml:"subid,attr"`
 	Type           string        `xml:"type,attr"`
-	ColumnChildren []ColumnChild `xml:",any"`
+	ColumnChildren []ColumnChild `xml:",any"` //  (title | key | meaning | example | subhead)*
 }
 
 type ColumnChild struct {

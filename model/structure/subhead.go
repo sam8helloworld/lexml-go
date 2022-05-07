@@ -13,7 +13,7 @@ type Subhead struct {
 	SubID           string         `xml:"subid,attr"`
 	Type            string         `xml:"type,attr"`
 	Delimiter       string         `xml:"delimiter,attr"`
-	SubheadChildren []SubheadChild `xml:",any"`
+	SubheadChildren []SubheadChild `xml:",any"` //  (subheadword | key | meaning | example | column | div | snippet)*
 }
 
 type SubheadChild struct {

@@ -7,5 +7,5 @@ type Ul struct {
 	XMLName xml.Name `xml:"ul"`
 	SubID   string   `xml:"subid,attr"`
 	Type    string   `xml:"type,attr"`
-	Value   []Li     `xml:"li"`
+	Value   []Li     `xml:"li"` // (li)+
 }

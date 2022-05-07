@@ -7,7 +7,6 @@ type SmallBR struct {
 	XMLName xml.Name `xml:"br"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
-	Value   string   `xml:",chardata"`
 }
 
 type LargeBR struct {
@@ -15,5 +14,4 @@ type LargeBR struct {
 	XMLName xml.Name `xml:"BR"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
-	Value   string   `xml:",chardata"`
 }

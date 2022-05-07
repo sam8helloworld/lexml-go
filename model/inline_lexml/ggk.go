@@ -7,5 +7,5 @@ type Ggk struct {
 	XMLName xml.Name `xml:"glabel"`
 	Class   string   `xml:"class,attr"`
 	Yomi    string   `xml:"yomi,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

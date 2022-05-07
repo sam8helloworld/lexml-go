@@ -6,5 +6,5 @@ type Title struct {
 	Structure
 	XMLName xml.Name `xml:"title"`
 	Type    string   `xml:"type,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

@@ -8,5 +8,5 @@ type Span struct {
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
 	Ph      string   `xml:"ph,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

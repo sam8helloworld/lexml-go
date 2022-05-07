@@ -7,7 +7,7 @@ type SmallEM struct {
 	XMLName xml.Name `xml:"em"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }
 
 type LargeEM struct {
@@ -15,5 +15,5 @@ type LargeEM struct {
 	XMLName xml.Name `xml:"EM"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

@@ -7,7 +7,7 @@ type SmallB struct {
 	XMLName xml.Name `xml:"b"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }
 
 type LargeB struct {
@@ -15,5 +15,5 @@ type LargeB struct {
 	XMLName xml.Name `xml:"B"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

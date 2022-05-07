@@ -13,7 +13,7 @@ type Table struct {
 	SubID      string    `xml:"subid,attr"`
 	Alt        string    `xml:"alt,attr"`
 	Type       string    `xml:"type,attr"`
-	TrChildren []TrChild `xml:",any"`
+	TrChildren []TrChild `xml:",any"` // (caption? | tr+)
 }
 
 type TableChild struct {

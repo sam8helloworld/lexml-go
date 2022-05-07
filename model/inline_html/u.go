@@ -7,7 +7,7 @@ type SmallU struct {
 	XMLName xml.Name `xml:"u"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }
 
 type LargeU struct {
@@ -15,5 +15,5 @@ type LargeU struct {
 	XMLName xml.Name `xml:"U"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

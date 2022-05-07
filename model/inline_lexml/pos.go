@@ -2,14 +2,14 @@ package inline_lexml
 
 import "encoding/xml"
 
-type pos struct {
+type SmallPos struct {
 	InlineLeXML
 	XMLName xml.Name `xml:"pos"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA)
 }
 
-type Pos struct {
+type LargePos struct {
 	InlineLeXML
 	XMLName xml.Name `xml:"Pos"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA)
 }

@@ -13,7 +13,7 @@ type Div struct {
 	SubID       string     `xml:"subid,attr"`
 	Type        string     `xml:"type,attr"`
 	Level       string     `xml:"level,attr"`
-	DivChildren []DivChild `xml:",any"`
+	DivChildren []DivChild `xml:",any"` // (title | key | meaning | example | subhead)*
 }
 
 type DivChild struct {

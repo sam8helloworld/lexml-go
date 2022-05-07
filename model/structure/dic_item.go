@@ -18,7 +18,7 @@ type DicItem struct {
 	PID             string   `xml:"pid,attr"`
 	SortKey         string   `xml:"sortkey,attr"`
 	Head            Head
-	DicItemChildren []DicItemChild `xml:",any"`
+	DicItemChildren []DicItemChild `xml:",any"` //  (head, (meaning | meaning-group | example | example-group | subhead | subheadword | index | key | column | div | p | image | audio | video | table | replace | ul | dl | memo | data | snippet)+)
 }
 
 type DicItemChild struct {

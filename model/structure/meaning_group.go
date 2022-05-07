@@ -14,7 +14,7 @@ type MeaningGroup struct {
 	Type                 string              `xml:"type,attr"`
 	Level                string              `xml:"level,attr"`
 	No                   string              `xml:"no,attr"`
-	MeaningGroupChildren []MeaningGroupChild `xml:",any"`
+	MeaningGroupChildren []MeaningGroupChild `xml:",any"` //  (meaning | example | subhead | column | key | div)*
 }
 
 type MeaningGroupChild struct {

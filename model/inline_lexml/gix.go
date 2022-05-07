@@ -8,5 +8,5 @@ type Gix struct {
 	Alt     string   `xml:"alt,attr"`
 	Type    string   `xml:"type,attr"`
 	AltImg  string   `xml:"altimg,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA)
 }

@@ -7,5 +7,5 @@ type ALabel struct {
 	XMLName xml.Name `xml:"alabel"`
 	Type    string   `xml:"type,attr"`
 	Code    string   `xml:"code,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

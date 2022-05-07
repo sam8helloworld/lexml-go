@@ -13,7 +13,7 @@ type ExampleGroup struct {
 	SubID                string              `xml:"subid,attr"`
 	Type                 string              `xml:"type,attr"`
 	Delimiter            string              `xml:"delimiter,attr"`
-	ExampleGroupChildren []ExampleGroupChild `xml:",any"`
+	ExampleGroupChildren []ExampleGroupChild `xml:",any"` //  (example | key)*
 }
 
 type ExampleGroupChild struct {

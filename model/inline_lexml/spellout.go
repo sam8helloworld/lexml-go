@@ -7,5 +7,5 @@ type Spellout struct {
 	XMLName xml.Name `xml:"spellout"`
 	Type    string   `xml:"type,attr"`
 	Org     string   `xml:"org,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

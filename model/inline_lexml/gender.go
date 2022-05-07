@@ -2,14 +2,14 @@ package inline_lexml
 
 import "encoding/xml"
 
-type gender struct {
+type SmallGender struct {
 	InlineLeXML
 	XMLName xml.Name `xml:"gender"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA)
 }
 
-type Gender struct {
+type LargeGender struct {
 	InlineLeXML
 	XMLName xml.Name `xml:"Gender"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA)
 }

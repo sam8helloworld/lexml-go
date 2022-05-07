@@ -2,20 +2,20 @@ package inline_lexml
 
 import "encoding/xml"
 
-type xref struct {
+type SmallXref struct {
 	InlineLeXML
 	XMLName xml.Name `xml:"xref"`
 	Type    string   `xml:"type,attr"`
 	RefId   string   `xml:"refid,attr"`
 	Id      string   `xml:"id,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }
 
-type XRef struct {
+type LargeXRef struct {
 	InlineLeXML
 	XMLName xml.Name `xml:"XREF"`
 	Type    string   `xml:"type,attr"`
 	RefId   string   `xml:"refid,attr"`
 	Id      string   `xml:"id,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

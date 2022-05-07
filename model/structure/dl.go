@@ -12,7 +12,7 @@ type Dl struct {
 	XMLName    xml.Name  `xml:"dl"`
 	SubID      string    `xml:"subid,attr"`
 	Type       string    `xml:"type,attr"`
-	DlChildren []DlChild `xml:",any"`
+	DlChildren []DlChild `xml:",any"` // (dt|dd)+
 }
 
 type DlChild struct {

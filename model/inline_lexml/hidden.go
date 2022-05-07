@@ -7,5 +7,5 @@ type Hidden struct {
 	XMLName xml.Name `xml:"hidden"`
 	Type    string   `xml:"type,attr"`
 	Memo    string   `xml:"memo,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }
