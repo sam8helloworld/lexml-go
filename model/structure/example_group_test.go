@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/sam8helloworld/lexml-go/model/pcdata"
 )
 
 func TestExampleGroupUnmarshalXML_Success(t *testing.T) {
@@ -32,7 +33,7 @@ func TestExampleGroupUnmarshalXML_Success(t *testing.T) {
 				Type: "key",
 				Value: Key{
 					XMLName: xml.Name{Local: "key"},
-					Value:   "key",
+					Value:   pcdata.PCDATA{Value: "key"},
 				},
 			},
 		},

@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/sam8helloworld/lexml-go/model/pcdata"
 )
 
 func TestHeadUnmarshalXML_Success(t *testing.T) {
@@ -27,12 +28,12 @@ func TestHeadUnmarshalXML_Success(t *testing.T) {
 		},
 		{
 			name:  "keyをUnmarshalできる",
-			input: `<key>plasma</key>`,
+			input: `<key>key</key>`,
 			want: HeadChild{
 				Type: "key",
 				Value: Key{
 					XMLName: xml.Name{Local: "key"},
-					Value:   "plasma",
+					Value:   pcdata.PCDATA{Value: "key"},
 				},
 			},
 		},
