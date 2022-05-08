@@ -5,3 +5,12 @@ var Tags = []string{
 }
 
 type InlineHTML interface{}
+
+func IsInlineHTML(t string) bool {
+	for _, v := range Tags {
+		if t == v {
+			return true
+		}
+	}
+	return false
+}
