@@ -1,4 +1,4 @@
-package model
+package structure
 
 import (
 	"encoding/xml"
@@ -13,7 +13,7 @@ type Replace struct {
 	SubId           string         `xml:"subid,attr"`
 	Type            string         `xml:"type,attr"`
 	Src             string         `xml:"src,attr"`
-	ReplaceChildren []ReplaceChild `xml:",any"`
+	ReplaceChildren []ReplaceChild `xml:",any"` //  (meaning | example | subhead)*
 }
 
 type ReplaceChild struct {

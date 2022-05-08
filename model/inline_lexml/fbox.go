@@ -1,15 +1,15 @@
-package model
+package inline_lexml
 
 import "encoding/xml"
 
-type fbox struct {
+type SmallFBox struct {
 	InlineLeXML
 	XMLName xml.Name `xml:"fbox"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }
 
-type FBox struct {
+type LargeFBox struct {
 	InlineLeXML
 	XMLName xml.Name `xml:"FBOX"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

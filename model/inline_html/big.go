@@ -1,4 +1,4 @@
-package model
+package inline_html
 
 import "encoding/xml"
 
@@ -7,5 +7,5 @@ type Big struct {
 	XMLName xml.Name `xml:"big"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

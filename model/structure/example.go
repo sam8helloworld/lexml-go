@@ -1,4 +1,4 @@
-package model
+package structure
 
 import "encoding/xml"
 
@@ -8,6 +8,5 @@ type Example struct {
 	SubID     string   `xml:"subid,attr"`
 	Type      string   `xml:"type,attr"`
 	Delimiter string   `xml:"delimiter,attr"`
-	Value     string   `xml:",chardata"`
-	// TODO: ex-body, ex-trans, ex-src, ex-miscを追加
+	Value     string   `xml:",chardata"` // (#PCDATA | ex-body | ex-trans | ex-src | ex-misc | %inline.html; | %inline.lexml;)*
 }

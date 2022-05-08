@@ -1,9 +1,9 @@
-package model
+package inline_lexml
 
 import "encoding/xml"
 
 type ProN struct {
 	InlineLeXML
 	XMLName xml.Name `xml:"pron-n"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

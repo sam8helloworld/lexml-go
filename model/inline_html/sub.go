@@ -1,15 +1,15 @@
-package model
+package inline_html
 
 import "encoding/xml"
 
-type sub struct {
+type SmallSub struct {
 	InlineHTML
 	XMLName xml.Name `xml:"sub"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }
 
-type Sub struct {
+type LargeSub struct {
 	InlineHTML
 	XMLName xml.Name `xml:"SUB"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

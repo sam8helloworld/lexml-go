@@ -1,4 +1,4 @@
-package model
+package structure
 
 import "encoding/xml"
 
@@ -9,5 +9,5 @@ type Meaning struct {
 	Type    string   `xml:"type,attr"`
 	Level   string   `xml:"level,attr"`
 	No      string   `xml:"no,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` //  (#PCDATA | %inline.html; | %inline.lexml;)*
 }

@@ -1,19 +1,19 @@
-package model
+package inline_html
 
 import "encoding/xml"
 
-type em struct {
+type SmallEM struct {
 	InlineHTML
 	XMLName xml.Name `xml:"em"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }
 
-type EM struct {
+type LargeEM struct {
 	InlineHTML
 	XMLName xml.Name `xml:"EM"`
 	Type    string   `xml:"type,attr"`
 	Class   string   `xml:"class,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

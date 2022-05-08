@@ -1,4 +1,4 @@
-package model
+package inline_html
 
 import "encoding/xml"
 
@@ -7,5 +7,5 @@ type A struct {
 	XMLName xml.Name `xml:"a"`
 	Href    string   `xml:"href,attr"`
 	Target  string   `xml:"target,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

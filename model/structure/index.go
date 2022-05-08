@@ -1,4 +1,4 @@
-package model
+package structure
 
 import (
 	"encoding/xml"
@@ -12,7 +12,7 @@ type Index struct {
 	XMLName       xml.Name     `xml:"index"`
 	SubID         string       `xml:"subid,attr"`
 	Type          string       `xml:"type,attr"`
-	IndexChildren []IndexChild `xml:",any"`
+	IndexChildren []IndexChild `xml:",any"` // (meaning | indexlist)*
 }
 
 type IndexChild struct {

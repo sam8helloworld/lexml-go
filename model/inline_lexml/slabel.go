@@ -1,4 +1,4 @@
-package model
+package inline_lexml
 
 import "encoding/xml"
 
@@ -8,5 +8,5 @@ type SLabel struct {
 	Type    string   `xml:"type,attr"`
 	Genre   string   `xml:"genre,attr"`
 	Code    string   `xml:"code,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | %inline.html; | %inline.lexml;)*
 }

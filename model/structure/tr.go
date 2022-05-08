@@ -1,4 +1,4 @@
-package model
+package structure
 
 import (
 	"encoding/xml"
@@ -10,7 +10,7 @@ var ErrTrChildrenUnknownElement = errors.New("tr have unknown children")
 type Tr struct {
 	Structure
 	XMLName    xml.Name  `xml:"tr"`
-	TrChildren []TrChild `xml:",any"`
+	TrChildren []TrChild `xml:",any"` // (th | td)*
 }
 
 type TrChild struct {

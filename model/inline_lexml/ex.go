@@ -1,4 +1,4 @@
-package model
+package inline_lexml
 
 import "encoding/xml"
 
@@ -6,5 +6,5 @@ type Ex struct {
 	InlineLeXML
 	XMLName xml.Name `xml:"ex"`
 	Type    string   `xml:"type,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | ex-body | ex-trans | ex-src | ex-misc | %inline.html; | %inline.lexml;)*
 }

@@ -1,4 +1,4 @@
-package model
+package inline_lexml
 
 import "encoding/xml"
 
@@ -7,5 +7,5 @@ type Kanbun struct {
 	XMLName xml.Name `xml:"kanbun"`
 	Type    string   `xml:"type,attr"`
 	SubID   string   `xml:"subid,attr"`
-	Value   string   `xml:",chardata"`
+	Value   string   `xml:",chardata"` // (#PCDATA | kkaeri | kruby | kokuri | klokuri | %inline.html; | %inline.lexml;)*
 }

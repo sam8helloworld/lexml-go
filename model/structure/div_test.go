@@ -1,4 +1,4 @@
-package model
+package structure
 
 import (
 	"encoding/xml"
@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/sam8helloworld/lexml-go/model/pcdata"
 )
 
 func TestDivUnmarshalXML_Success(t *testing.T) {
@@ -32,7 +33,7 @@ func TestDivUnmarshalXML_Success(t *testing.T) {
 				Type: "key",
 				Value: Key{
 					XMLName: xml.Name{Local: "key"},
-					Value:   "key",
+					Value:   pcdata.PCDATA{Value: "key"},
 				},
 			},
 		},
