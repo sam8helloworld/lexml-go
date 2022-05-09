@@ -22,7 +22,9 @@ func TestDlUnmarshalXML_Success(t *testing.T) {
 				Type: "dt",
 				Value: Dt{
 					XMLName: xml.Name{Local: "dt"},
-					Value:   "dt",
+					Value: model.InnerXML{
+						Value: "dt",
+					},
 				},
 			},
 		},
