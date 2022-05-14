@@ -129,7 +129,9 @@ func TestDicItemUnmarshalXML_Success(t *testing.T) {
 				Type: "p",
 				Value: P{
 					XMLName: xml.Name{Local: "p"},
-					Value:   "p",
+					Value: model.InnerXML{
+						Value: "p",
+					},
 				},
 			},
 		},
