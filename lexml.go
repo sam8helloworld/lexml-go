@@ -4,11 +4,11 @@ import (
 	"bytes"
 	"encoding/xml"
 
-	"github.com/sam8helloworld/lexml-go/model/structure"
+	"github.com/sam8helloworld/lexml-go/entity"
 )
 
-func UnMarshal(xmldoc []byte) (*structure.DicItem, error) {
-	di := structure.DicItem{}
+func UnMarshal(xmldoc []byte) (*entity.DicItem, error) {
+	di := entity.DicItem{}
 	dec := xml.NewDecoder(bytes.NewReader(xmldoc))
 	dec.Strict = false
 	err := dec.Decode(&di)
