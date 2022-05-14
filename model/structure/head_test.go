@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/sam8helloworld/lexml-go/model"
 	"github.com/sam8helloworld/lexml-go/model/pcdata"
 )
 
@@ -22,7 +23,9 @@ func TestHeadUnmarshalXML_Success(t *testing.T) {
 				Type: "headword",
 				Value: Headword{
 					XMLName: xml.Name{Local: "headword"},
-					Value:   "plasma",
+					Value: model.InnerXML{
+						Value: "plasma",
+					},
 				},
 			},
 		},

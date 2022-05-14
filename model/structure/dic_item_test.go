@@ -77,7 +77,9 @@ func TestDicItemUnmarshalXML_Success(t *testing.T) {
 				Type: "subheadword",
 				Value: Subheadword{
 					XMLName: xml.Name{Local: "subheadword"},
-					Value:   "サブヘッドワード",
+					Value: model.InnerXML{
+						Value: "サブヘッドワード",
+					},
 				},
 			},
 		},
@@ -129,7 +131,9 @@ func TestDicItemUnmarshalXML_Success(t *testing.T) {
 				Type: "p",
 				Value: P{
 					XMLName: xml.Name{Local: "p"},
-					Value:   "p",
+					Value: model.InnerXML{
+						Value: "p",
+					},
 				},
 			},
 		},
@@ -210,7 +214,9 @@ func TestDicItemUnmarshalXML_Success(t *testing.T) {
 				Type: "memo",
 				Value: Memo{
 					XMLName: xml.Name{Local: "memo"},
-					Value:   "memo",
+					Value: model.InnerXML{
+						Value: "memo",
+					},
 				},
 			},
 		},

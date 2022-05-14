@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/sam8helloworld/lexml-go/model"
 	"github.com/sam8helloworld/lexml-go/model/pcdata"
 	"github.com/sam8helloworld/lexml-go/model/structure"
 )
@@ -25,16 +26,26 @@ func TestSuccessUnmarshalDicItem(t *testing.T) {
 			XMLName: xml.Name{Local: "head"},
 			HeadChildren: []structure.HeadChild{
 				{
-					Type:  "headword",
-					Value: structure.Headword{XMLName: xml.Name{Local: "headword"}, Value: "plasma"},
+					Type: "headword",
+					Value: structure.Headword{
+						XMLName: xml.Name{Local: "headword"},
+						Value: model.InnerXML{
+							Value: "plasma",
+						},
+					},
 				},
 				{
 					Type:  "key",
 					Value: structure.Key{XMLName: xml.Name{Local: "key"}, Value: pcdata.PCDATA{Value: "plasma"}},
 				},
 				{
-					Type:  "headword",
-					Value: structure.Headword{XMLName: xml.Name{Local: "headword"}, Value: "pl&aeacute;zm&schwa;"},
+					Type: "headword",
+					Value: structure.Headword{
+						XMLName: xml.Name{Local: "headword"},
+						Value: model.InnerXML{
+							Value: "pl&aeacute;zm&schwa;",
+						},
+					},
 				},
 			},
 		},

@@ -68,7 +68,9 @@ func TestSubheadUnmarshalXML_Success(t *testing.T) {
 				Type: "subheadword",
 				Value: Subheadword{
 					XMLName: xml.Name{Local: "subheadword"},
-					Value:   "subheadword",
+					Value: model.InnerXML{
+						Value: "subheadword",
+					},
 				},
 			},
 		},
