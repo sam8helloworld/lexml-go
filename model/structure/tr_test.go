@@ -22,7 +22,9 @@ func TestTrUnmarshalXML_Success(t *testing.T) {
 				Type: "th",
 				Value: Th{
 					XMLName: xml.Name{Local: "th"},
-					Value:   "th",
+					Value: model.InnerXML{
+						Value: "th",
+					},
 				},
 			},
 		},
