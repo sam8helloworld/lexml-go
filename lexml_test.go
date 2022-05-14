@@ -5,9 +5,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/sam8helloworld/lexml-go/model"
-	"github.com/sam8helloworld/lexml-go/model/pcdata"
-	"github.com/sam8helloworld/lexml-go/model/structure"
+	"github.com/sam8helloworld/lexml-go/entity"
 )
 
 func TestSuccessUnmarshalDicItem(t *testing.T) {
@@ -19,30 +17,30 @@ func TestSuccessUnmarshalDicItem(t *testing.T) {
 	<headword>pl&aeacute;zm&schwa;</headword>
 	</head>
 	</dic-item>`)
-	want := structure.DicItem{
+	want := entity.DicItem{
 		XMLName: xml.Name{Local: "dic-item"},
 		ID:      "sample01",
-		Head: structure.Head{
+		Head: entity.Head{
 			XMLName: xml.Name{Local: "head"},
-			HeadChildren: []structure.HeadChild{
+			HeadChildren: []entity.HeadChild{
 				{
 					Type: "headword",
-					Value: structure.Headword{
+					Value: entity.Headword{
 						XMLName: xml.Name{Local: "headword"},
-						Value: model.InnerXML{
+						Value: entity.InnerXML{
 							Value: "plasma",
 						},
 					},
 				},
 				{
 					Type:  "key",
-					Value: structure.Key{XMLName: xml.Name{Local: "key"}, Value: pcdata.PCDATA{Value: "plasma"}},
+					Value: entity.Key{XMLName: xml.Name{Local: "key"}, Value: entity.PCDATA{Value: "plasma"}},
 				},
 				{
 					Type: "headword",
-					Value: structure.Headword{
+					Value: entity.Headword{
 						XMLName: xml.Name{Local: "headword"},
-						Value: model.InnerXML{
+						Value: entity.InnerXML{
 							Value: "pl&aeacute;zm&schwa;",
 						},
 					},
