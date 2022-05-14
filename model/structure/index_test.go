@@ -35,7 +35,9 @@ func TestIndexUnmarshalXML_Success(t *testing.T) {
 				Type: "indexlist",
 				Value: IndexList{
 					XMLName: xml.Name{Local: "indexlist"},
-					Value:   "1",
+					Value: model.InnerXML{
+						Value: "1",
+					},
 				},
 			},
 		},
