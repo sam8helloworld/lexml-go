@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/sam8helloworld/lexml-go/model"
 )
 
 func TestTableUnmarshalXML_Success(t *testing.T) {
@@ -21,7 +22,9 @@ func TestTableUnmarshalXML_Success(t *testing.T) {
 				Type: "caption",
 				Value: Caption{
 					XMLName: xml.Name{Local: "caption"},
-					Value:   "caption",
+					Value: model.InnerXML{
+						Value: "caption",
+					},
 				},
 			},
 		},
