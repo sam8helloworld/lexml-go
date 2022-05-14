@@ -2,8 +2,10 @@ package entity
 
 import (
 	"encoding/xml"
-	"regexp"
 	"strings"
+
+	"github.com/antchfx/htmlquery"
+	"golang.org/x/net/html"
 )
 
 type InnerXML struct {
@@ -15,47 +17,53 @@ type Entity struct {
 	Value interface{}
 }
 
+// FIXME: ロジックが適当
 func (i *InnerXML) StructuredValue() []Entity {
-	tags := []string{}
-	for _, t := range append(InlineHtmlTags, InlineLeXMLTags...) {
-		tg := "<" + t + ">.*</" + t + ">"
-		tags = append(tags, tg)
-	}
-	tagsRegStr := "(" + strings.Join(tags, "|") + ")"
-	reg := regexp.MustCompile(tagsRegStr)
-	// FIXME: 流石に独自に@@@を区切り文字として入れるのは良くない
-	rep := reg.ReplaceAllString(i.Value, "@@@$1@@@")
-	entities := strings.Split(rep, "@@@")
-	var models []Entity
-	for _, entity := range entities {
-		// FIXME: entitiesにから文字列の要素が入ってしまう
-		if entity == "" {
-			continue
+	node, _ := html.Parse(strings.NewReader(i.Value))
+	var nodes []Entity
+	c := node.FirstChild
+	for c != nil {
+		if c.Type == html.TextNode {
+			nodes = append(nodes, Entity{
+				Type: "pcdata",
+				Value: PCDATA{
+					Value: c.Data,
+				},
+			})
 		}
-		reg := regexp.MustCompile(`<(.+)>(.+)</(.+)>`)
-		submatch := reg.FindStringSubmatch(entity)
-		var model Entity
-		// タグがない時
-		if len(submatch) == 0 {
-			model.Type = "pcdata"
-			model.Value = PCDATA{
-				Value: entity,
+		if c.Type == html.ElementNode {
+			if !IsInlineHTML(c.Data) && !IsInlineLeXML(c.Data) {
+				if c.FirstChild == nil {
+					c = c.NextSibling
+				} else {
+					c = c.FirstChild
+				}
+				continue
 			}
-			models = append(models, model)
+			if c.Data == "b" {
+				nodes = append(nodes, Entity{
+					Type: c.Data,
+					Value: SmallB{
+						XMLName: xml.Name{Local: "b"},
+						Value:   htmlquery.OutputHTML(c, false),
+					},
+				})
+			}
+			if c.Data == "alabel" {
+				nodes = append(nodes, Entity{
+					Type: c.Data,
+					Value: ALabel{
+						XMLName: xml.Name{Local: "alabel"},
+						Value: InnerXML{
+							Value: htmlquery.OutputHTML(c, false),
+						},
+					},
+				})
+			}
+			c = c.NextSibling
 			continue
 		}
-		model.Type = submatch[1]
-		if IsInlineHTML(model.Type) {
-			var ent SmallB
-			xml.Unmarshal([]byte(entity), &ent)
-			model.Value = ent
-		}
-		if IsInlineLeXML(model.Type) {
-			var ent ALabel
-			xml.Unmarshal([]byte(entity), &ent)
-			model.Value = ent
-		}
-		models = append(models, model)
+		c = c.NextSibling
 	}
-	return models
+	return nodes
 }

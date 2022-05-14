@@ -14,9 +14,43 @@ func TestInnerXMLStructuredValue_Success(t *testing.T) {
 		want  []Entity
 	}{
 		{
-			name:  "inline_html, inline_lexml, pcdataを同時にUnmarshalできる",
+			name:  "inline_html, inline_lexml, pcdataを同時にUnmarshalできる(inline -> pcdata)",
 			input: `<b>b</b><alabel>alabel</alabel>pcdata`,
 			want: []Entity{
+				{
+					Type: "b",
+					Value: SmallB{
+						XMLName: xml.Name{Local: "b"},
+						Value:   "b",
+					},
+				},
+				{
+					Type: "alabel",
+					Value: ALabel{
+						XMLName: xml.Name{Local: "alabel"},
+						Value: InnerXML{
+							Value: "alabel",
+						},
+					},
+				},
+				{
+					Type: "pcdata",
+					Value: PCDATA{
+						Value: "pcdata",
+					},
+				},
+			},
+		},
+		{
+			name:  "inline_html, inline_lexml, pcdataを同時にUnmarshalできる(pcdata -> inline)",
+			input: `pcdata<b>b</b><alabel>alabel</alabel>pcdata`,
+			want: []Entity{
+				{
+					Type: "pcdata",
+					Value: PCDATA{
+						Value: "pcdata",
+					},
+				},
 				{
 					Type: "b",
 					Value: SmallB{
