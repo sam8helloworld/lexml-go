@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/sam8helloworld/lexml-go/model"
 )
 
 func TestTrUnmarshalXML_Success(t *testing.T) {
@@ -32,7 +33,9 @@ func TestTrUnmarshalXML_Success(t *testing.T) {
 				Type: "td",
 				Value: Td{
 					XMLName: xml.Name{Local: "td"},
-					Value:   "td",
+					Value: model.InnerXML{
+						Value: "td",
+					},
 				},
 			},
 		},
