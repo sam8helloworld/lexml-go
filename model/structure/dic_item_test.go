@@ -77,7 +77,9 @@ func TestDicItemUnmarshalXML_Success(t *testing.T) {
 				Type: "subheadword",
 				Value: Subheadword{
 					XMLName: xml.Name{Local: "subheadword"},
-					Value:   "サブヘッドワード",
+					Value: model.InnerXML{
+						Value: "サブヘッドワード",
+					},
 				},
 			},
 		},
