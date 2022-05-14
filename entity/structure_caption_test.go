@@ -35,7 +35,9 @@ func TestCaptionUnmarshalXML_Success(t *testing.T) {
 					Type: "alabel",
 					Value: ALabel{
 						XMLName: xml.Name{Local: "alabel"},
-						Value:   "alabel",
+						Value: InnerXML{
+							Value: "alabel",
+						},
 					},
 				},
 			},
@@ -67,7 +69,9 @@ func TestCaptionUnmarshalXML_Success(t *testing.T) {
 					Type: "alabel",
 					Value: ALabel{
 						XMLName: xml.Name{Local: "alabel"},
-						Value:   "alabel",
+						Value: InnerXML{
+							Value: "alabel",
+						},
 					},
 				},
 				{

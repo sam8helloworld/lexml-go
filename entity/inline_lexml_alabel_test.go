@@ -8,15 +8,15 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-func TestDtUnmarshalXML_Success(t *testing.T) {
+func TestAlabelUnmarshalXML_Success(t *testing.T) {
 	tests := []struct {
 		name  string
 		input string
 		want  []Entity
 	}{
 		{
-			name:  "dt内のinline_htmlをUnmarshalできる",
-			input: `<dt><b>b</b></dt>`,
+			name:  "alabel内のinline_htmlをUnmarshalできる",
+			input: `<alabel><b>b</b></alabel>`,
 			want: []Entity{
 				{
 					Type: "b",
@@ -28,8 +28,8 @@ func TestDtUnmarshalXML_Success(t *testing.T) {
 			},
 		},
 		{
-			name:  "dt内のinline_lexmlをUnmarshalできる",
-			input: `<dt><alabel>alabel</alabel></dt>`,
+			name:  "alabel内のinline_lexmlをUnmarshalできる",
+			input: `<alabel><alabel>alabel</alabel></alabel>`,
 			want: []Entity{
 				{
 					Type: "alabel",
@@ -43,8 +43,8 @@ func TestDtUnmarshalXML_Success(t *testing.T) {
 			},
 		},
 		{
-			name:  "dt内のpcdataをUnmarshalできる",
-			input: `<dt>pcdata</dt>`,
+			name:  "alabel内のpcdataをUnmarshalできる",
+			input: `<alabel>pcdata</alabel>`,
 			want: []Entity{
 				{
 					Type: "pcdata",
@@ -55,8 +55,8 @@ func TestDtUnmarshalXML_Success(t *testing.T) {
 			},
 		},
 		{
-			name:  "dt内のinline_html, inline_lexml, pcdataを同時にUnmarshalできる",
-			input: `<dt><b>b</b><alabel>alabel</alabel>pcdata</dt>`,
+			name:  "alabel内のinline_html, inline_lexml, pcdataを同時にUnmarshalできる",
+			input: `<alabel><b>b</b><alabel>alabel</alabel>pcdata</alabel>`,
 			want: []Entity{
 				{
 					Type: "b",
@@ -87,9 +87,9 @@ func TestDtUnmarshalXML_Success(t *testing.T) {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
-			var d Dt
-			err := xml.Unmarshal([]byte(tt.input), &d)
-			got := d.Value.StructuredValue()
+			var a ALabel
+			err := xml.Unmarshal([]byte(tt.input), &a)
+			got := a.Value.StructuredValue()
 			if err != nil {
 				t.Fatalf("failed to execute Unmarshal %#v", err)
 			}
@@ -100,11 +100,11 @@ func TestDtUnmarshalXML_Success(t *testing.T) {
 	}
 }
 
-func TestDtUnmarshalXML_Fail(t *testing.T) {
+func TestAlabelUnmarshalXML_Fail(t *testing.T) {
 	input := []byte(`<unknown>plasma</unknown>`)
-	var got Dt
+	var got ALabel
 	err := xml.Unmarshal(input, &got)
-	if !errors.Is(err, ErrDtUnknownElement) {
+	if !errors.Is(err, ErrAlabelUnknownElement) {
 		t.Fatalf("failed to execute Unmarshal %#v", err)
 	}
 }
