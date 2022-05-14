@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/sam8helloworld/lexml-go/model"
 )
 
 func TestIndexUnmarshalXML_Success(t *testing.T) {
@@ -21,7 +22,9 @@ func TestIndexUnmarshalXML_Success(t *testing.T) {
 				Type: "meaning",
 				Value: Meaning{
 					XMLName: xml.Name{Local: "meaning"},
-					Value:   "意味",
+					Value: model.InnerXML{
+						Value: "意味",
+					},
 				},
 			},
 		},

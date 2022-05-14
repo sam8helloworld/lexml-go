@@ -7,3 +7,12 @@ var Tags = []string{
 }
 
 type InlineLeXML interface{}
+
+func IsInlineLeXML(t string) bool {
+	for _, v := range Tags {
+		if t == v {
+			return true
+		}
+	}
+	return false
+}

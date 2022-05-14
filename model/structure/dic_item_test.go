@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/sam8helloworld/lexml-go/model"
 	"github.com/sam8helloworld/lexml-go/model/pcdata"
 )
 
@@ -22,7 +23,9 @@ func TestDicItemUnmarshalXML_Success(t *testing.T) {
 				Type: "meaning",
 				Value: Meaning{
 					XMLName: xml.Name{Local: "meaning"},
-					Value:   "意味",
+					Value: model.InnerXML{
+						Value: "意味",
+					},
 				},
 			},
 		},
