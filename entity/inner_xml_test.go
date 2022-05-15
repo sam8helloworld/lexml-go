@@ -21,7 +21,9 @@ func TestInnerXMLStructuredValue_Success(t *testing.T) {
 					Type: "b",
 					Value: SmallB{
 						XMLName: xml.Name{Local: "b"},
-						Value:   "b",
+						Value: InnerXML{
+							Value: "b",
+						},
 					},
 				},
 				{
@@ -55,7 +57,9 @@ func TestInnerXMLStructuredValue_Success(t *testing.T) {
 					Type: "b",
 					Value: SmallB{
 						XMLName: xml.Name{Local: "b"},
-						Value:   "b",
+						Value: InnerXML{
+							Value: "b",
+						},
 					},
 				},
 				{
