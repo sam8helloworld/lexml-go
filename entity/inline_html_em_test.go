@@ -8,15 +8,15 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-func TestIndexListUnmarshalXML_Success(t *testing.T) {
+func TestEmUnmarshalXML_Success(t *testing.T) {
 	tests := []struct {
 		name  string
 		input string
 		want  []Entity
 	}{
 		{
-			name:  "indexlist内のinline_htmlをUnmarshalできる",
-			input: `<indexlist><b>b</b></indexlist>`,
+			name:  "em内のinline_htmlをUnmarshalできる",
+			input: `<em><b>b</b></em>`,
 			want: []Entity{
 				{
 					Type: "b",
@@ -30,8 +30,8 @@ func TestIndexListUnmarshalXML_Success(t *testing.T) {
 			},
 		},
 		{
-			name:  "indexlist内のinline_lexmlをUnmarshalできる",
-			input: `<indexlist><alabel>alabel</alabel></indexlist>`,
+			name:  "em内のinline_lexmlをUnmarshalできる",
+			input: `<em><alabel>alabel</alabel></em>`,
 			want: []Entity{
 				{
 					Type: "alabel",
@@ -45,8 +45,8 @@ func TestIndexListUnmarshalXML_Success(t *testing.T) {
 			},
 		},
 		{
-			name:  "indexlist内のpcdataをUnmarshalできる",
-			input: `<indexlist>pcdata</indexlist>`,
+			name:  "em内のpcdataをUnmarshalできる",
+			input: `<em>pcdata</em>`,
 			want: []Entity{
 				{
 					Type: "pcdata",
@@ -57,8 +57,8 @@ func TestIndexListUnmarshalXML_Success(t *testing.T) {
 			},
 		},
 		{
-			name:  "indexlist内のinline_html, inline_lexml, pcdataを同時にUnmarshalできる",
-			input: `<indexlist><b>b</b><alabel>alabel</alabel>pcdata</indexlist>`,
+			name:  "em内のinline_html, inline_lexml, pcdataを同時にUnmarshalできる",
+			input: `<em><b>b</b><alabel>alabel</alabel>pcdata</em>`,
 			want: []Entity{
 				{
 					Type: "b",
@@ -91,9 +91,9 @@ func TestIndexListUnmarshalXML_Success(t *testing.T) {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
-			var i IndexList
-			err := xml.Unmarshal([]byte(tt.input), &i)
-			got := i.Value.StructuredValue()
+			var e SmallEM
+			err := xml.Unmarshal([]byte(tt.input), &e)
+			got := e.Value.StructuredValue()
 			if err != nil {
 				t.Fatalf("failed to execute Unmarshal %#v", err)
 			}
@@ -104,11 +104,16 @@ func TestIndexListUnmarshalXML_Success(t *testing.T) {
 	}
 }
 
-func TestIndexListUnmarshalXML_Fail(t *testing.T) {
+func TestEmUnmarshalXML_Fail(t *testing.T) {
 	input := []byte(`<unknown>plasma</unknown>`)
-	var got IndexList
-	err := xml.Unmarshal(input, &got)
-	if !errors.Is(err, ErrIndexListUnknownElement) {
+	var gotSmallEm SmallEM
+	err := xml.Unmarshal(input, &gotSmallEm)
+	if !errors.Is(err, ErrEmUnknownElement) {
+		t.Fatalf("failed to execute Unmarshal %#v", err)
+	}
+	var gotLargeEm LargeEM
+	err = xml.Unmarshal(input, &gotLargeEm)
+	if !errors.Is(err, ErrEmUnknownElement) {
 		t.Fatalf("failed to execute Unmarshal %#v", err)
 	}
 }

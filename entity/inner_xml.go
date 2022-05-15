@@ -45,7 +45,9 @@ func (i *InnerXML) StructuredValue() []Entity {
 					Type: c.Data,
 					Value: SmallB{
 						XMLName: xml.Name{Local: "b"},
-						Value:   htmlquery.OutputHTML(c, false),
+						Value: InnerXML{
+							Value: htmlquery.OutputHTML(c, false),
+						},
 					},
 				})
 			}
